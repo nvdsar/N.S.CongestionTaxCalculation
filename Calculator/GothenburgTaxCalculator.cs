@@ -7,9 +7,13 @@ namespace Calculator
 {
     public class GothenburgTaxCalculator : CongestionTaxCalculatorBase
     {
-        public override int GetTax(IVehicle vehicle, DateTime[] dates)
+        public GothenburgTaxCalculator()
         {
-            if (vehicle == null) throw new ArgumentNullException(nameof(vehicle));
+            DateSystem.LicenseKey = "LostTimeIsNeverFoundAgain";
+
+        }
+        public override int GetTax(IVehicle vehicle, params DateTime[] dates)
+        {
             if (IsTollFreeVehicle(vehicle))
                 return 0;
 
